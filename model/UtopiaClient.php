@@ -93,6 +93,7 @@
 				"offset" => (string) $offset,
 				"limit"  => (string) $limit
 			];
+			$this->api_query("requestTreasuryTransactionVolumes");
 			$response = $this->api_query("getTreasuryTransactionVolumes", [], $filter);
 			if(!isset($response['result'])) {
 				return [];
