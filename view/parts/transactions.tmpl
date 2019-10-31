@@ -1,0 +1,22 @@
+<table class="table table-general">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">index</th>
+      <th scope="col">hex</th>
+      <th scope="col">date</th>
+      <th scope="col">amount</th>
+      <th scope="col" class="d-none d-sm-block">transactions</th>
+    </tr>
+  </thead>
+  <tbody>
+	{% for tr in page.tr.transactions %}
+		<tr class="text-center">
+		  <td>{{ loop.index }}</td>
+		  <td>{{ tr.hex }}</td>
+		  <td>{{ tr.date }}</td>
+		  <td>{{ tr.amount }}</td>
+		  <td class="d-none d-sm-block">{{ tr.volume }}</td>
+		</tr>
+	{% endfor %}
+  </tbody>
+</table>

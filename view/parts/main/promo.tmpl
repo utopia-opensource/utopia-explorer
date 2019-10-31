@@ -1,0 +1,20 @@
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4 text-primary">
+			<span class="text-highlited">U</span><span class="text-highlited">t</span><span class="text-highlited">o</span><span class="text-highlited">p</span><span class="text-highlited">i</span><span class="text-highlited">a</span>
+			<span>Block Explorer</span>
+		</h1>
+		<p class="lead">A tool that allows you to view blocks, view uNS records, channels, transaction data and other key information in the blockchain.</p>
+		<p class="lead">
+			<span>Summary:</span>
+			<span><i class="icon ion-ios-person"></i> {{ page.data.summary.registred_users }} users,</span>
+			{# TOQ: fix this #}
+			{% if page.tag == 'home' %}
+				<span><i class="icon ion-md-cloud"></i> {{ page.data.summary.registred_names }} uNS records,</span>
+				<span><i class="icon ion-ios-cube"></i> {{ page.data.last_blocks[0].blocks }} blocks.</span>
+			{% else %}
+				<span><i class="icon ion-md-cloud"></i> {{ page.data.summary.registred_names }} uNS records.</span>
+			{% endif %}
+		</p>
+	</div>
+</div>

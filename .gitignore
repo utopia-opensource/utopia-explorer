@@ -1,0 +1,12 @@
+# composer
+/composer.json
+/controller/vendor/**
+# cache
+/view/cache/**
+# params
+.env
+.htaccess
+# backups
+*.bak
+# other
+/resources/**

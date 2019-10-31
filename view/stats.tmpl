@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include 'parts/head.tmpl' %}
+  <body>
+    {% include 'parts/navbar.tmpl' %}
+    <div class="white-wrap">
+      <div class="container pb-4">
+        <h1 class="w-100 text-center pt-3 pb-2">Statistics</h1>
+        <div class="row row-flex row-flex-wrap">
+          {# element #}
+          <div class="col-6 p-2">
+            <div class="card">
+              <img src="/img/cards/server.png" class="card-img-top" alt="Statistics card"/>
+              <div class="card-body">
+                <h4>Uptime: {{ page.stats.uptime }}</h4>
+                <h4>Connections: {{ page.stats.connections }}</h4>
+              </div>
+            </div>
+          </div>
+          {# element #}
+          <div class="col-6 p-2">
+            <div class="card">
+              <img src="/img/cards/card.png" class="card-img-top" alt="Statistics card"/>
+              <div class="card-body">
+                 <h4>Card create price: {{ page.stats.finance.cardCreatePrice }} CRP</h4>
+                 <h4>Cards max active: {{ page.stats.finance.cardsMaxActive }}</h4>
+                 <h4>Cards max per day: {{ page.stats.finance.cardsMaxPerDay }}</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+        {# row #}
+        <div class="row row-flex row-flex-wrap">
+          {# element #}
+          <div class="col-6 p-2">
+            <div class="card">
+              <img src="/img/cards/transfer.png" class="card-img-top" alt="Statistics card"/>
+              <div class="card-body">
+                 <h4>Transfer card fee: {{ page.stats.finance.transferCardFee }}%</h4>
+                 <h4>Transfer external fee: {{ page.stats.finance.transferExternalFee }}%</h4>
+                 <h4>Transfer internal fee: {{ page.stats.finance.transferInternalFee }}%</h4>
+              </div>
+            </div>
+          </div>
+          {# end element #}
+          <div class="col-6 p-2">
+            <div class="card">
+              <img src="/img/cards/uns.png" class="card-img-top" alt="Statistics card"/>
+              <div class="card-body">
+                 <h4>
+                  <span>uNS name registration fee:</span><br/>
+                  <p class="pl-3">
+                    <span>{{ page.stats.finance.unsName1RegistrationFee }} CRP (1 char)</span><br/>
+                    <span>{{ page.stats.finance.unsName2RegistrationFee }} CRP (2 chars)</span><br/>
+                    <span>{{ page.stats.finance.unsName3RegistrationFee }} CRP (3 chars)</span><br/>
+                    <span>{{ page.stats.finance.unsName4RegistrationFee }} CRP (>3 chars)</span>
+                  <p>
+                 </h4>
+                 <h4>uNS transfer fee: {{ page.stats.finance.unsTransferFee }} CRP</h4>
+                 <h4>uNS modify name fee: {{ page.stats.finance.unsModifyNameFee }} CRP</h4>
+                 <h4>uNS delete name fee: {{ page.stats.finance.unsDeleteNameFee }} CRP</h4>
+              </div>
+            </div>
+          </div>
+          {# end element #}
+        </div>
+        {# endrow #}
+        <div class="row row-flex row-flex-wrap">
+          {# end element #}
+          <div class="col-6 p-2">
+            <div class="card">
+              <img src="/img/cards/voucher.png" class="card-img-top" alt="Statistics card"/>
+              <div class="card-body">
+                 <h4>Vouchers max active: {{ page.stats.finance.vouchersMaxActive }}</h4>
+                 <h4>Vouchers min per batch: {{ page.stats.finance.vouchersMinPerBatch }}</h4>
+                 <h4>Vouchers max per batch: {{ page.stats.finance.vouchersMaxPerBatch }}</h4>
+                 <h4>Vouchers min amount: {{ page.stats.finance.vouchersMinAmount }} CRP</h4>
+              </div>
+            </div>
+          </div>
+          {# end element #}
+        </div>
+        {# endrow #}
+      </div>
+    </div>
+    {% include 'parts/footer.tmpl' %}
+  </body>
+</html>

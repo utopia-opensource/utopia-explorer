@@ -1,0 +1,22 @@
+<table class="table table-general">
+  <thead>
+    <tr class="text-center">
+      <th scope="col">index</th>
+      <th scope="col">hex</th>
+      <th scope="col">timestamp</th>
+      <th scope="col" class="d-none d-sm-block">miners</th>
+      <th scope="col">per miner, CRP</th>
+    </tr>
+  </thead>
+  <tbody>
+	{% for block in page.data.last_blocks %}
+		<tr class="text-center">
+		  <td><a href="/block/{{ block.id }}">{{ block.id }}</a></td>
+		  <td><a href="/block/{{ block.id }}" class="text-primary">{{ block.hex }}</a></td>
+		  <td>{{ block.dateTime }}</td>
+		  <td class="d-none d-sm-block">{{ block.numberMiniers }}</td>
+		  <td>{{ block.price }}</td>
+		</tr>
+	{% endfor %}
+  </tbody>
+</table>

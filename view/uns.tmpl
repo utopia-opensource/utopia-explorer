@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{% include 'parts/navbar.tmpl' %}
+		<div class="white-wrap">
+			<div class="container pb-4">
+				{% include 'parts/search_form.tmpl' %}
+				<h1 class="w-100 text-center pt-3">uNS record</h1>
+				<center class="w-100">
+					<div class="text-left" style="max-width: 500px;">
+						<span><i class="icon ion-ios-albums"></i> record name: {{ page.data.nick }}</span><br/>
+						<span><i class="icon ion-md-finger-print"></i> channel ID: {% if page.data.channelId != ''%}<a href="/channel/{{ page.data.channelId }}">{{ page.data.channelId }}</a>{% else %}not available{% endif %}</span><br/>
+						<span><i class="icon ion-md-calendar"></i> issued: {{ page.data.issued }}</span><br/>
+						<span><i class="icon ion-md-calendar"></i> valid until: {{ page.data.valid }}</span><br/>
+						<span><i class="icon ion-md-git-commit"></i> owner pubkey: <a href="/pubkey/{{ page.data.pk }}" title="click to view details"><img src="/img/tridcode?code={{ page.data.pk }}" alt="tridcode"/></a></span>
+            <h3>
+              {% if page.data.isBlocked == true %}
+                <i class="icon ion-ios-lock" title="record is blocked"></i>
+              {% endif %}
+              {% if page.data.isPrimary == true %}
+                 <i class="icon ion-ios-star" title="primary record for this pubkey"></i>
+              {% endif %}
+            </h3>
+					</div>
+				</center>
+			</div>
+		</div>
+		{% include 'parts/footer.tmpl' %}
+	</body>
+</html>

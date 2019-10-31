@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{% include 'parts/navbar.tmpl' %}
+		<div class="white-wrap">
+			<div class="container pb-4">
+				{% include 'parts/search_form.tmpl' %}
+				<h1 class="w-100 text-center pt-3">Block #{{ page.data.block.id }}</h1>
+				<center class="w-100">
+					<div class="text-left" style="max-width: 500px;">
+						<h4><i class="icon ion-md-time"></i> Timestamp: {{ page.data.block.dateTime }}</h4>
+						<h4><i class="icon ion-md-git-commit"></i> HEX: {{ page.data.block.hex }}</h4>
+						<h4><i class="icon ion-ios-person"></i> Miners: {{ page.data.block.numberMiniers }}</h4>
+						<h4><i class="icon ion-ios-radio-button-off"></i> Amount per miner: {{ page.data.block.price }} CRP</h4>
+						<h4><i class="icon ion-ios-radio-button-on"></i> Full amount: {{ page.data.block.full_amount }} CRP</h4>
+					</div>
+				</center>
+			</div>
+		</div>
+		{% include 'parts/footer.tmpl' %}
+	</body>
+</html>

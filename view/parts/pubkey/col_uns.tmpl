@@ -1,0 +1,28 @@
+{% if page.data.stats.uns_count > 0 %}
+ <div class="col-6 p-2">
+  <div class="card w-100">
+    <div class="card-img-top">
+      <h4 class="text-primary text-center pt-3">uNS records</h4>
+    </div>
+    <div class="card-body">
+      {% for record in page.data.uns %}
+        <h4>
+          <img src="https://www.tinygraphs.com/labs/isogrids/hexa/{{ record.nick }}?theme=frogideas&numcolors=4&size=40"/>
+          {% if record.isBlocked %}
+            <i class="icon ion-ios-lock" title="record is blocked"></i>
+          {% endif %}
+          {% if record.isPrimary %}
+            <i class="icon ion-ios-star" title="primary record"></i>
+          {% endif %}
+          <a href="/uns/{{ record.nick }}">{{ record.nick }}</a>
+        </h4>
+        <span><i class="icon ion-md-finger-print"></i> channel ID: {% if record.channelId == '' %}not available{% else %}<a href="/channel/{{ record.channelId }}">{{ record.channelId }}</a>{% endif %}</span><br/>
+        <span><i class="icon ion-md-calendar"></i> issued: {{ record.issued }}</span><br/>
+        <span><i class="icon ion-md-calendar"></i> valid until: {{ record.valid }}</span><br/>
+        <span><i class="icon ion-ios-information-circle"></i> webInfo: {% if record.webInfo == '' %}not available{% else %}{{ record.webInfo }}{% endif %}</span>
+        {% if page.data.stats.uns_count > loop.index %}<hr/>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

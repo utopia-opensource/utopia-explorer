@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{% include 'parts/navbar.tmpl' %}
+		<div class="white-wrap">
+			<div class="container">
+				<div class="pt-1 pb-5 text-center">
+					<h1>Error{% if page.error > 0 %} {{ page.code }}{% endif %}</h1>
+					{% if page.code == 404 %}
+						<h4>Page not found</h4>
+					{% elseif page.code == 500 %}
+						<h4>Server error</h4>
+					{% elseif page.code == 403 %}
+						<h4>Access denied</h4>
+					{% else %}
+						<h4>Unknown error =(</h4>
+					{% endif %}
+				</div>
+			</div>
+		</div>
+		{% include 'parts/footer.tmpl' %}
+	</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{% include 'parts/navbar.tmpl' %}
+		<div class="white-wrap">
+			<div class="container pb-4">
+				<div class="row">
+					{% include 'parts/search_form.tmpl' %}
+          <h2 class="w-100 text-center pt-4">Pubkey owner</h2>
+          <span class="text-center w-100 pt-2 pb-3">
+            <a href="/pubkey/{{ page.data.stats.pubkey }}">
+              <img src="/img/tridcode?code={{ page.data.stats.pubkey }}" class="tridcode" title="colored hash" alt="tridcode"/>
+            </a>
+            <br/>
+            <a href="/pubkey/{{ page.data.stats.pubkey }}">
+              <img src="https://www.tinygraphs.com/spaceinvaders/{{ page.data.stats.pubkey }}?theme=frogideas&numcolors=4&size=48"/>
+            </a>
+            {{ page.data.stats.pubkey }}
+          </span>
+				</div>
+        <div class="row row-flex row-flex-wrap">
+          {% include 'parts/pubkey/col_channels.tmpl' %}
+          {% include 'parts/pubkey/col_uns.tmpl' %}
+        </div>
+			</div>
+		</div>
+		{% include 'parts/footer.tmpl' %}
+	</body>
+</html>

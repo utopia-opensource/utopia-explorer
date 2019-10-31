@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{% include 'parts/navbar.tmpl' %}
+		<div class="white-wrap">
+			{% include 'parts/main/promo.tmpl' %}
+			<div class="container pb-4">
+				<h2 class="w-100 text-center">Transactions</h2>
+				<h4 class="w-100 text-center">Summary</h4>
+				<p class="text-center">
+					<span>All time amount: {{ page.tr.summary.allTimeAmount }} CRP</span><br/>
+					<span>Total transactions: {{ page.tr.summary.allTimeTransactionVolume }}</span>
+				</p>
+				<div class="row">
+					{% include 'parts/search_form.tmpl' %}
+					{% include 'parts/transactions.tmpl' %}
+				</div>
+			</div>
+		</div>
+		{% include 'parts/footer.tmpl' %}
+	</body>
+</html>

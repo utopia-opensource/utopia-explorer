@@ -1,0 +1,19 @@
+{% if page.data.stats.channels_count > 0 %}
+ <div class="col-6 p-2">
+  <div class="card w-100">
+    <div class="card-img-top">
+      <h4 class="text-primary text-center pt-3">Channels</h4>
+    </div>
+    <div class="card-body">
+      {% for channel in page.data.channels %}
+        <h4><img src="https://www.tinygraphs.com/labs/isogrids/hexa/{{ channel.channelId }}?theme=frogideas&numcolors=4&size=40"/> {{ channel.channelName }}</h4>
+        <span><i class="icon ion-md-finger-print"></i> ID: <a href="/channel/{{ channel.channelId }}">{{ channel.channelId }}</a></span>
+        {% if channel.unsName != '' %}
+          <br/><i class="icon ion-md-key"></i> uNS name: <a href="/uns/{{ channel.unsName }}">{{ channel.unsName }}</a>
+        {% endif %}
+        {% if page.data.stats.channels_count > loop.index %}<hr/>{% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

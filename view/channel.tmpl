@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	{% include 'parts/head.tmpl' %}
+	<body>
+		{% include 'parts/navbar.tmpl' %}
+		<div class="white-wrap">
+			<div class="container pb-4">
+				{% include 'parts/search_form.tmpl' %}
+        <h1 class="w-100 text-center pt-3">{{ page.data.title }}</h1>
+				<center class="w-100">
+					<div class="text-left" style="max-width: 500px;">
+            <span><i class="icon ion-md-finger-print"></i> ID: {{ page.data.channelId }}</span><br/>
+						<span><i class="icon ion-md-git-commit"></i> owner: <a href="/pubkey/{{ page.data.owner }}" title="click to view details"><img src="/img/tridcode?code={{ page.data.owner }}" alt="tridcode"/></a></span><br/>
+            <span><i class="icon ion-logo-buffer"></i> type: {{ page.data.type }}</span>
+            <p class="p-3">{{ page.data.description }}</p>
+            <span><i class="icon ion-md-calendar"></i> created: {{ page.data.created }}</span><br/>
+            <span><i class="icon ion-md-calendar"></i> modified: {{ page.data.modified }}</span>
+            
+            <p class="pt-3 pb-3">
+              {% if page.data.hashtags != '' %}<span><i class="icon ion-ios-pricetag"></i> hashtags: {{ page.data.hashtags }}</span><br/>{% endif %}
+              {% if page.data.languages != '' %}<span><i class="icon ion-md-chatboxes"></i> languages: {{ page.data.languages }}</span><br/>{% endif %}
+              {% if page.data.geotag != '' %}<span><i class="icon ion-ios-pin"></i> geotag: {{ page.data.geotag }}</span><br/>{% endif %}
+              
+              {% if page.data.HideInCommonList == true %}
+                <i class="icon ion-md-eye-off lead" title="invisible in common list"></i>
+              {% else %}
+                <i class="icon ion-md-eye lead" title="visible in common list"></i>
+              {% endif %}
+              {% if page.data.readonly == true %}
+                <i class="icon ion-md-mic-off lead" title="readonly channel"></i>
+              {% endif %}
+              {% if page.data.readonly_privacy == true %}
+                <i class="icon ion-ios-briefcase lead" title="readonly privacy"></i>
+              {% endif %}
+            </p>
+					</div>
+				</center>
+			</div>
+		</div>
+		{% include 'parts/footer.tmpl' %}
+	</body>
+</html>
