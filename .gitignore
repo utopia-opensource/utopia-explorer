@@ -1,5 +1,4 @@
 # composer
-/composer.json
 /controller/vendor/**
 # cache
 /view/cache/**
